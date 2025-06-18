@@ -1,12 +1,9 @@
 package ru.practicum.comment.service.repository;
 
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.practicum.comment.service.model.Comment;
+import ru.practicum.comment.service.model.BanComment;
 
-import java.util.List;
+public interface BanCommentRepository extends JpaRepository<BanComment, Long> {
 
-public interface CommentRepository extends JpaRepository<Comment, Long> {
-
-    List<Comment> findAllByEventId(Long id, Pageable pageable);
+    BanComment findByUserIdAndEventId(Long userId, Long eventId);
 }
